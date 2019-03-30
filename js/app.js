@@ -59,8 +59,26 @@
 				const total = document.querySelector('.cart-total-container');
 				cart.insertBefore(cartItem, total);
 				alert('item added to the cart');
+
+				showTotals();
 			}
 		})
-	})
+	});
+
+	function showTotals() {
+		// array holds the total of the items
+		const total = [];
+
+		const items = document.querySelectorAll('.cart-item-price');
+		items.forEach((item) => {
+			total.push(parseFloat(item.textContent));
+		});
+
+		let totalPrice = total.reduce((acc, nextVal) => {
+			return acc + nextVal;
+		}, 0).toFixed(2);
+
+		console.log(totalPrice);
+	}
 
 })();
