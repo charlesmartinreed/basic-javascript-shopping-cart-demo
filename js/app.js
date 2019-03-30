@@ -78,7 +78,9 @@
 			return acc + nextVal;
 		}, 0).toFixed(2);
 
-		console.log(totalPrice);
+		document.getElementById('cart-total').textContent = totalPrice;
+		document.querySelector('.item-total').textContent = totalPrice;
+		document.getElementById('item-count').textContent = total.length;
 	}
 
 })();
